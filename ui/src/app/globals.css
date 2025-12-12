@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  /*
+   * Redis Cloud–inspired palette (approx).
+   * Tweak these tokens to match your exact brand screenshots.
+   */
+  --rc-bg: #f6f8fb;
+  --rc-surface: #ffffff;
+  --rc-surface-2: #f1f5f9;
+  --rc-border: #e2e8f0;
+
+  --rc-text: #0f172a;
+  --rc-muted: #64748b;
+
+  --rc-primary: #2563eb;
+  --rc-primary-600: #1d4ed8;
+  --rc-danger: #dc382d; /* Redis red */
+  --rc-warning: #f59e0b;
+  --rc-success: #16a34a;
+
+  --rc-sidebar: #0b1220;
+  --rc-sidebar-text: #e2e8f0;
+  --rc-sidebar-muted: #94a3b8;
+}
+
+@theme inline {
+  --color-canvas: var(--rc-bg);
+  --color-panel: var(--rc-surface);
+  --color-panel-2: var(--rc-surface-2);
+  --color-border: var(--rc-border);
+
+  --color-text: var(--rc-text);
+  --color-muted: var(--rc-muted);
+
+  --color-primary: var(--rc-primary);
+  --color-primary-600: var(--rc-primary-600);
+  --color-danger: var(--rc-danger);
+  --color-warning: var(--rc-warning);
+  --color-success: var(--rc-success);
+
+  --color-sidebar: var(--rc-sidebar);
+  --color-sidebar-text: var(--rc-sidebar-text);
+  --color-sidebar-muted: var(--rc-sidebar-muted);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rc-bg: #070b14;
+    --rc-surface: #0b1220;
+    --rc-surface-2: #0f1a2e;
+    --rc-border: #1e293b;
+
+    --rc-text: #e2e8f0;
+    --rc-muted: #94a3b8;
+
+    --rc-primary: #3b82f6;
+    --rc-primary-600: #2563eb;
+    --rc-danger: #ef4444;
+    --rc-warning: #fbbf24;
+    --rc-success: #22c55e;
+
+    --rc-sidebar: #050812;
+    --rc-sidebar-text: #e2e8f0;
+    --rc-sidebar-muted: #94a3b8;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-text font-sans antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--rc-primary) 80%, white);
+    outline-offset: 2px;
+  }
+}
